@@ -5,7 +5,6 @@ class CreateTrips < ActiveRecord::Migration[6.0]
       t.string :country
       t.string :date
       t.string :image
-
       t.timestamps
     end
   end
