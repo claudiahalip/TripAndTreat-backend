@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_011604) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
-    t.boolean "tradutional"
+    t.boolean "traditional"
     t.string "raiting"
     t.string "description"
     t.integer "trip_id", null: false
