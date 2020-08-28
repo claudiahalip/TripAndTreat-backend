@@ -13,9 +13,10 @@ class FoodsController < ApplicationController
     def create
        food = Food.new(food_params)
        if food.save
-        render json: foods.to_json(include: {trip: {only: [:location, :country, :date, :image]}}, only:[:name, :price, :rating, :description])
+        render json: food.to_json(include: {trip: {only: [:location, :country, :date, :image]}}, only:[:name, :price, :rating, :description])
        else
         render json: {error: "Your food couldn't be added"}
+       end
     end 
 
     private
