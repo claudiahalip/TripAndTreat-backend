@@ -21,7 +21,7 @@ class TripsController < ApplicationController
 
     def update 
        trip = Trip.find(params[:id])
-       trip.update 
+       trip.update(trip_params)
        render json: trip.to_json(include: {food: {only: [:id, :name, :price, :rating, :description]}}, only: [:id, :location, :country, :date, :image]) 
     end
 
