@@ -2,22 +2,23 @@ class FoodsController < ApplicationController
 
     def index 
         foods = Food.all
-        render json: foods.to_json(include: {trip: {only: [:id, :location, :country, :date, :image]}}, only:[:id, :name, :price, :rating, :description] )
+        render json: foods.to_json(include: {trip: {only: [:id, :location, :country, :date, :image]}}, only:[:id, :name, :price, :rating, :description, :trip_id] )
     end 
 
     def show 
         food = Food.find(params[:id])
-        render json: food.to_json(include: {trip: {only: [:id, :location, :country, :date, :image]}}, only:[:id,:name, :price, :rating, :description] )
+        render json: food.to_json(include: {trip: {only: [:id, :location, :country, :date, :image]}}, only:[:id,:name, :price, :rating, :description, :trip_id] )
     end 
 
     def create
        food = Food.new(food_params)
        if food.save
-        render json: food.to_json(include: {trip: {only: [:id, :location, :country, :date, :image]}}, only:[:id,:name, :price, :rating, :description])
+        render json: food.to_json(include: {trip: {only: [:id, :location, :country, :date, :image]}}, only:[:id,:name, :price, :rating, :description, :trip_id])
        else
         render json: {error: "Your food couldn't be added"}
        end
     end 
+
 
     private
 
